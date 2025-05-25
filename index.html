@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Категории и хиты продаж</title>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+<main class="container">
+    <section class="categories">
+        <h2>Категории товаров</h2>
+        <div class="tabs">
+            <button class="tab active" data-type="cosmetics">Косметология</button>
+            <button class="tab" data-type="medicine">Медицина</button>
+        </div>
+        <div class="category-list" id="category-list">
+            <!-- Категории вставляются скриптом -->
+        </div>
+        <div class="cta-button-wrapper">
+            <button class="cta-button">Получить лучшие цены</button>
+        </div>
+    </section>
+
+    <section class="hits">
+        <h2>Хиты продаж</h2>
+        <div class="products" id="product-list">
+            <!-- Хиты вставляются скриптом -->
+        </div>
+        <div class="cta-button-wrapper">
+            <button class="cta-button">Все хиты продаж</button>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
