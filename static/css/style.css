@@ -1,5 +1,18 @@
-:root {
-    font-size: 16px; /* Базовый размер шрифта для rem */
+html {
+    font-size: calc(100vw / 1920 * 16);
+
+}
+
+@media (max-width: 640px) {
+    html {
+        font-size: calc(100vw / 640 * 16);
+    }
+}
+
+@media (max-width: 320px) {
+    html {
+        font-size: calc(100vw / 320 * 16);
+    }
 }
 
 body {
@@ -15,18 +28,30 @@ body {
     max-width: 73rem;
     margin: 0 auto;
     padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 3.125rem;
+    margin-bottom: 2.5rem;
     font-weight: 500;
+}
+
+@media (max-width: 639px) {
+    h2 {
+        font-size: 1.875rem;
+        line-height: 1.2;
+        margin-bottom: 1.25rem;
+
+    }
 }
 
 .tabs {
     display: flex;
     gap: 0.625rem;
     margin-bottom: 1rem;
+
 }
 
 .tab {
@@ -46,19 +71,21 @@ h2 {
 /* Стили для списка категорий */
 .category-list {
     display: grid;
-    gap: 0.625rem;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .category {
     position: relative;
     overflow: hidden;
     border-radius: 1.25rem;
-    width: 22.5rem;
-    height: 12.5rem;
+    width: 100%;
+    max-width: 22.5rem;
+    height: auto;
+    aspect-ratio: 16 / 9;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    grid-column: span 1;
 }
 
 .category:hover {
@@ -71,6 +98,7 @@ h2 {
     object-fit: cover;
     display: block;
     filter: brightness(0.8);
+
 }
 
 .category-title {
@@ -81,29 +109,45 @@ h2 {
     padding: 1rem;
     color: #fff;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.125rem;
 
 }
 
 /* Адаптивные стили для категорий */
-@media (min-width: 1024px) {
-    .category-list {
+@media (min-width: 1920px) {
+    .category-list,
+    .products {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
+        gap: 2.5rem;
     }
 }
-
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 1024px) and (max-width: 1919px) {
+    .category-list,
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
     .category-list {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
+        gap: 2.5rem;
+    }
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        margin-right: 0.5rem;
     }
 }
 
-@media (max-width: 767px) {
-    .category-list {
+@media (max-width: 639px) {
+    .category-list,
+    .products {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 2.5rem;
+    }
+    .category-title {
+        font-size: 0.875rem;
     }
 }
 
@@ -112,8 +156,9 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 22.5rem;
-    height: 12.5rem;
+    width: 100%;
+    max-width: 22.5rem;
+    aspect-ratio: 16 / 9;
     background: #fff;
     border: 1px dashed #ccc;
     border-radius: 0.5rem;
@@ -131,9 +176,6 @@ h2 {
     background: #f8f8f8;
     border-color: #999;
 }
-.category {
-    grid-column: span 1;
-}
 
 /* Стили для хитов */
 .products {
@@ -147,7 +189,6 @@ h2 {
     justify-content: space-between;
     background: white;
     padding: 1.5rem;
-    margin-right: 1rem;
     border-radius: 1rem;
     position: relative;
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
@@ -155,25 +196,8 @@ h2 {
     font-weight: 500;
 }
 
-@media (min-width: 1024px) {
-    .products {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .product{
-        margin-right: 0.5rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .products {
-        grid-template-columns: 1fr;
-    }
+.product p {
+    font-size: 1.125rem;
 }
 
 .product img {
